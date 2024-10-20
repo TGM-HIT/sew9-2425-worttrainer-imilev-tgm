@@ -1,6 +1,5 @@
 package model;
 
-
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -11,18 +10,13 @@ public class Wortpaar {
     public Wortpaar(String url, String wort) throws URISyntaxException {
         setUrl(url);
         setWort(wort);
-
-
     }
 
     private void setWort(String wort) {
-        if(wort != null && !wort.isEmpty()) {
-            this.wort = wort;
+        if (wort == null || wort.isEmpty()) {
+            throw new IllegalArgumentException("Wort darf nicht leer sein");
         }
-        else {
-            throw new IllegalArgumentException("Wort darf nicht null sein");
-        }
-
+        this.wort = wort;
     }
 
     public String getUrl() {
@@ -30,15 +24,15 @@ public class Wortpaar {
     }
 
     public void setUrl(String url) throws URISyntaxException {
-        if (url != null && !url.isEmpty()) {
-            try {
-                URI uri = new URI(url);
-                this.url = url;
-            } catch (URISyntaxException e) {
-                throw new URISyntaxException("Invalid URL: " + url, e.toString());
-            }
-        } else {
+        if (url == null || url.isEmpty()) {
             throw new IllegalArgumentException("URL darf nicht leer oder null sein");
+        }
+
+        try {
+            URI uri = new URI(url);
+            this.url = url;
+        } catch (URISyntaxException e) {
+            throw new URISyntaxException("Ungültige URL: " + url, e.toString());
         }
     }
 
