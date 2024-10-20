@@ -29,11 +29,14 @@ Der **Worttrainer** ist eine Anwendung, die Kindern hilft, die Rechtschreibung v
 - **IntelliJ**: Entwicklungsumgebung
 - **ChatGPT**: Unterstützung bei der Softwareentwicklung
 - **Dependencies**:
-  dependencies {
+
+~~~
+dependencies {
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.0'
     implementation 'com.fasterxml.jackson.core:jackson-core:2.15.0'
     implementation 'com.fasterxml.jackson.core:jackson-annotations:2.15.0'
   }
+~~~
   Jackson wird benötigt um Java Objects als JSON Objekte abzuspeichern.
