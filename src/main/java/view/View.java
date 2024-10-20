@@ -1,6 +1,5 @@
 package view;
 
-import model.Wortpaar;
 import model.WortTrainer;
 import saveload.SaveLoad;
 
@@ -12,30 +11,31 @@ import java.net.URL;
 
 /**
  * Die View-Klasse, die für die Benutzerinteraktion verantwortlich ist.
- * Sie verwendet JOptionPane, um dem Benutzer Eingaben zu ermöglichen und Informationen anzuzeigen.
  */
 public class View {
 
     private WortTrainer wortTrainer;
     private SaveLoad saveLoad;
-    private JFrame frame; // JFrame für die Benutzeroberfläche
-    private JPanel panel; // JPanel für die Anzeige von Bild und Statistik
-    private JLabel statsLabel; // Label für Statistiken
-    private JLabel imageLabel; // Label für das Bild
-    private JButton stopButton; // Button zum Beenden des Programms
+    private JFrame frame;
+    private JPanel panel;
+    private JLabel statsLabel;
+    private JLabel imageLabel;
+    private JTextField inputField;
+    private JButton submitButton;
+    private JButton stopButton;
 
     public View(WortTrainer wortTrainer, SaveLoad saveLoad) {
         this.wortTrainer = wortTrainer;
         this.saveLoad = saveLoad;
 
-        // JFrame initialisieren
+        // Initialisierung des JFrame
         frame = new JFrame("Worttrainer");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setPreferredSize(new Dimension(600, 400)); // Größe des Fensters festlegen
+        frame.setPreferredSize(new Dimension(500, 400));
 
-        // JPanel initialisieren
+        // Initialisierung des Panels
         panel = new JPanel();
-        panel.setLayout(new BorderLayout()); // Layout für das Panel festlegen
+        panel.setLayout(new BorderLayout());
 
         // Statistik-Label
         statsLabel = new JLabel("", SwingConstants.CENTER);
@@ -45,82 +45,93 @@ public class View {
         imageLabel = new JLabel();
         panel.add(imageLabel, BorderLayout.CENTER);
 
-        // Button zum Beenden des Programms
-        stopButton = new JButton("Aufhören");
+        // Eingabefeld und Button
+        JPanel inputPanel = new JPanel();
+        inputPanel.setLayout(new BorderLayout()); // Vertical layout for the entire panel
+
+        // Input Field
+        inputField = new JTextField(20);
+
+        // Buttons
+        submitButton = new JButton("Antwort abgeben");
+        submitButton.addActionListener(e -> handleAnswer());
+
+        stopButton = new JButton("Programm beenden");
         stopButton.addActionListener(e -> {
-            saveWortTrainer(); // Zustand speichern
-            System.exit(0); // Programm beenden
+            showStatistics();
+            saveWortTrainer();
+            System.exit(0);
         });
-        panel.add(stopButton, BorderLayout.SOUTH);
+
+        // Create a horizontal panel for the buttons
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        buttonPanel.add(submitButton);
+        buttonPanel.add(stopButton);
+
+        // Add the horizontal button panel to the bottom of the input panel
+        inputPanel.add(inputField, BorderLayout.CENTER);
+        inputPanel.add(buttonPanel, BorderLayout.PAGE_END);
+
+        // Add the input panel to the main panel
+        panel.add(inputPanel, BorderLayout.SOUTH);
 
         frame.add(panel);
-        frame.pack(); // JFrame anpassen
-        frame.setVisible(true); // JFrame sichtbar machen
+        frame.pack();
+        frame.setVisible(true);
     }
 
     /**
      * Startet die Hauptschleife des Worttrainers, in der der Benutzer Wörter raten kann.
      */
     public void start() {
-        boolean ersterVersuch = true;
-        String letzteAntwort = null;
+        showNextWord(); // Zeigt das erste Wort an
+    }
 
-        while (true) {
-            // Wähle zufällig ein Wortpaar aus
-            wortTrainer.waehleRandomWortpaar();
+    /**
+     * Startet die nächste Runde des Worttrainers.
+     */
+    private void showNextWord() {
+        // Wähle zufällig ein Wortpaar aus
+        wortTrainer.waehleRandomWortpaar();
 
-            // Zeige das Bild und die bisherige Statistik an
-            showImageAndStats(ersterVersuch, letzteAntwort);
+        // Zeige das Bild und die bisherige Statistik an
+        showImageAndStats();
 
-            // Frage das Wort vom Benutzer ab
-            String benutzerEingabe = JOptionPane.showInputDialog(frame, "Was siehst du auf dem Bild?", "Rate das Wort", JOptionPane.QUESTION_MESSAGE);
+        // Setze das Eingabefeld zurück
+        inputField.setText("");
+    }
 
-            // Wenn der Benutzer die Eingabe abbricht oder nichts eingibt, breche die Schleife ab
-            if (benutzerEingabe == null || benutzerEingabe.isEmpty()) {
-                break;
-            }
-
-            // Überprüfe die Eingabe und zeige das Ergebnis an
-            if (checkAnswer(benutzerEingabe)) {
-                letzteAntwort = null;  // Reset
-            } else {
-                letzteAntwort = benutzerEingabe;
-            }
-
-            // Inkrementiere den Zähler für die Gesamtversuche
-            wortTrainer.setInsgesamt(wortTrainer.getInsgesamt() + 1);
+    /**
+     * Handhabt die Eingabe des Benutzers und überprüft die Antwort.
+     */
+    private void handleAnswer() {
+        String userAnswer = inputField.getText();
+        if (!userAnswer.isEmpty()) {
+            checkAnswer(userAnswer);
+            inputField.setText("");
+            showNextWord(); // Zeige das nächste Wort
         }
-
-        // Zeige die Endstatistik an und das Stop-Button
-        showEndScreen();
     }
 
     /**
      * Überprüft die Eingabe des Benutzers und aktualisiert die Statistik.
-     * Gibt true zurück, wenn die Antwort richtig war.
      */
-    private boolean checkAnswer(String benutzerEingabe) {
-        if (benutzerEingabe.equalsIgnoreCase(wortTrainer.getWort())) {
+    private void checkAnswer(String benutzerEingabe) {
+        boolean isCorrect = benutzerEingabe.equalsIgnoreCase(wortTrainer.getWort());
+        String message = isCorrect ? "Richtig!" : "Falsch! Das richtige Wort war: " + wortTrainer.getWort();
+        JOptionPane.showMessageDialog(frame, message, "Ergebnis", JOptionPane.INFORMATION_MESSAGE);
+        if (isCorrect) {
             wortTrainer.setRichtig(wortTrainer.getRichtig() + 1);
-            JOptionPane.showMessageDialog(frame, "Richtig!", "Ergebnis", JOptionPane.INFORMATION_MESSAGE);
-            return true;
-        } else {
-            JOptionPane.showMessageDialog(frame, "Falsch! Das richtige Wort war: " + wortTrainer.getWort(), "Ergebnis", JOptionPane.ERROR_MESSAGE);
-            return false;
         }
+        wortTrainer.setInsgesamt(wortTrainer.getInsgesamt() + 1);
     }
 
     /**
      * Zeigt das Bild und die Statistik an.
      */
-    private void showImageAndStats(boolean ersterVersuch, String letzteAntwort) {
+    private void showImageAndStats() {
         // Bereite die Statistik vor
         String stats = "Insgesamt: " + wortTrainer.getInsgesamt() + ", Richtig: " + wortTrainer.getRichtig();
-        if (!ersterVersuch && letzteAntwort != null) {
-            stats += "\nLetzte Eingabe war falsch: " + letzteAntwort;
-        }
-
-        // Update the statistics label
         statsLabel.setText(stats);
 
         // Versuche, das Bild aus der URL anzuzeigen
@@ -128,20 +139,19 @@ public class View {
         try {
             URL url = new URL(imageUrl);
             ImageIcon icon = new ImageIcon(url);
-            Image scaledImage = icon.getImage().getScaledInstance(300, 300, Image.SCALE_SMOOTH); // Bild skalieren
-            imageLabel.setIcon(new ImageIcon(scaledImage)); // Skaliertes Bild setzen
+            Image scaledImage = icon.getImage().getScaledInstance(500, 400, Image.SCALE_SMOOTH);
+            imageLabel.setIcon(new ImageIcon(scaledImage));
         } catch (MalformedURLException e) {
             JOptionPane.showMessageDialog(frame, stats + "\nFehler beim Laden des Bildes", "Fehler", JOptionPane.ERROR_MESSAGE);
         }
     }
 
     /**
-     * Zeigt die Endstatistik an und ermöglicht es dem Benutzer, das Programm zu beenden.
+     * Zeigt die Statistiken an, bevor das Programm beendet wird.
      */
-    private void showEndScreen() {
-        statsLabel.setText("Vielen Dank fürs Spielen! Hier sind deine Statistiken: " +
-                "\nInsgesamt: " + wortTrainer.getInsgesamt() + ", Richtig: " + wortTrainer.getRichtig());
-        imageLabel.setIcon(null); // Bild entfernen
+    private void showStatistics() {
+        String stats = "Insgesamt: " + wortTrainer.getInsgesamt() + ", Richtig: " + wortTrainer.getRichtig();
+        JOptionPane.showMessageDialog(frame, stats, "Deine Statistik", JOptionPane.INFORMATION_MESSAGE);
     }
 
     /**
