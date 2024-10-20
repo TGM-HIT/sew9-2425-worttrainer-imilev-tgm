@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b55e1def-3a07-47cc-802e-60109f675394" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/saveload/SaveLoad.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/saveload/SaveLoadJson.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/worttrainer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/View.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Worttrainer.asta" beforeDir="false" afterPath="$PROJECT_DIR$/Worttrainer.asta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Wortpaar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Wortpaar.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +67,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1729428707698</updated>
-      <workItem from="1729428708735" duration="4447000" />
+      <workItem from="1729428708735" duration="5113000" />
     </task>
     <servers />
   </component>
