@@ -7,8 +7,6 @@
     <list default="true" id="b55e1def-3a07-47cc-802e-60109f675394" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/WortTrainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/WortTrainer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Wortpaar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Wortpaar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/View.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/worttrainer.json" beforeDir="false" afterPath="$PROJECT_DIR$/worttrainer.json" afterDir="false" />
     </list>
@@ -71,7 +69,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1729428707698</updated>
-      <workItem from="1729428708735" duration="13348000" />
+      <workItem from="1729428708735" duration="14949000" />
     </task>
     <servers />
   </component>

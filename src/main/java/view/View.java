@@ -24,6 +24,8 @@ public class View {
     private JButton submitButton;
     private JButton stopButton;
 
+    private int i = -1;
+
     public View(WortTrainer wortTrainer, SaveLoad saveLoad) {
         this.wortTrainer = wortTrainer;
         this.saveLoad = saveLoad;
@@ -84,15 +86,21 @@ public class View {
      * Startet die Hauptschleife des Worttrainers, in der der Benutzer Wörter raten kann.
      */
     public void start() {
-        showNextWord(); // Zeigt das erste Wort an
+        showNextWord();
     }
 
     /**
      * Startet die nächste Runde des Worttrainers.
      */
     private void showNextWord() {
-        // Wähle zufällig ein Wortpaar aus
-        wortTrainer.waehleRandomWortpaar();
+
+        // Dient damit das erste Wortpaar aus dem Index gelesen wird und nicht random
+
+        if (i > 0) {
+            wortTrainer.waehleRandomWortpaar();
+        }
+        i = 1;
+
 
         // Zeige das Bild und die bisherige Statistik an
         showImageAndStats();

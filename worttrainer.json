@@ -1,7 +1,7 @@
 {
-  "richtig" : 3,
-  "insgesamt" : 3,
-  "aktuellesWortpaarIndex" : 0,
+  "richtig" : 11,
+  "insgesamt" : 17,
+  "aktuellesWortpaarIndex" : 1,
   "wortpaare" : [ {
     "url" : "https://e6ki4fbm3oz.exactdn.com/wp-content/uploads/2016/06/Zunge-Giraffe.jpg?strip=all&lossy=1&ssl=1",
     "wort" : "Giraffe"
