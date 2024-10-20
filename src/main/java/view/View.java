@@ -117,8 +117,9 @@ public class View {
      * Überprüft die Eingabe des Benutzers und aktualisiert die Statistik.
      */
     private void checkAnswer(String benutzerEingabe) {
-        boolean isCorrect = benutzerEingabe.equalsIgnoreCase(wortTrainer.getWort());
-        String message = isCorrect ? "Richtig!" : "Falsch! Das richtige Wort war: " + wortTrainer.getWort();
+        String richtigesWort = wortTrainer.getWort();
+        boolean isCorrect = benutzerEingabe.equalsIgnoreCase(richtigesWort);
+        String message = isCorrect ? "Richtig!" : "Falsch! Das richtige Wort war: " + richtigesWort;
         JOptionPane.showMessageDialog(frame, message, "Ergebnis", JOptionPane.INFORMATION_MESSAGE);
         if (isCorrect) {
             wortTrainer.setRichtig(wortTrainer.getRichtig() + 1);
@@ -134,7 +135,7 @@ public class View {
         String stats = "Insgesamt: " + wortTrainer.getInsgesamt() + ", Richtig: " + wortTrainer.getRichtig();
         statsLabel.setText(stats);
 
-        // Versuche, das Bild aus der URL anzuzeigen
+        // Versuche, das Bild aus der URL des aktuellen Wortpaars anzuzeigen
         String imageUrl = wortTrainer.getBildURL();
         try {
             URL url = new URL(imageUrl);

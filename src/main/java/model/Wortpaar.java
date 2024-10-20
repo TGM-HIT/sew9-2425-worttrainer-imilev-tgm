@@ -7,6 +7,11 @@ public class Wortpaar {
     private String url;
     private String wort;
 
+    // Standard-Konstruktor für Jackson
+    public Wortpaar() {
+        // Standard-Konstruktor, der benötigt wird
+    }
+
     public Wortpaar(String url, String wort) throws URISyntaxException {
         setUrl(url);
         setWort(wort);

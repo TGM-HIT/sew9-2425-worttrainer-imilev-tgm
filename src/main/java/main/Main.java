@@ -19,6 +19,13 @@ public class Main {
         // Versuche, den WortTrainer zu laden. Falls nicht vorhanden, erstelle einen neuen.
         WortTrainer wortTrainer = loadWortTrainer(saveLoad);
 
+        // Überprüfe, ob der WortTrainer erfolgreich geladen oder erstellt wurde
+        if (wortTrainer != null) {
+            System.out.println("WortTrainer erfolgreich geladen oder erstellt.");
+        } else {
+            System.out.println("Fehler beim Laden des WortTrainers.");
+        }
+
         // Erstelle eine Instanz der View-Klasse
         View wortTrainerView = new View(wortTrainer, saveLoad);
 
@@ -33,11 +40,12 @@ public class Main {
         try {
             WortTrainer wortTrainer = saveLoad.load();
             if (wortTrainer == null) {
+                System.out.println("Keine Daten gefunden, neuer Worttrainer wird erstellt.");
                 return createNewWortTrainer();
             }
             return wortTrainer;
         } catch (IOException | ClassNotFoundException e) {
-            System.out.println("Keine Daten gefunden, neuer Worttrainer wird erstellt.");
+            System.out.println("Fehler beim Laden: " + e.getMessage());
             return createNewWortTrainer();
         }
     }
