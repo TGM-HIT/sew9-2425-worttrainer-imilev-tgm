@@ -3,7 +3,6 @@ package view;
 import model.Wortpaar;
 import model.WortTrainer;
 import saveload.SaveLoad;
-import saveload.SaveLoadJson;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -19,39 +18,9 @@ public class View {
     private WortTrainer wortTrainer;
     private SaveLoad saveLoad;
 
-    public View() {
-        this.saveLoad = new SaveLoadJson();
-        this.wortTrainer = loadWortTrainer();
-        if (this.wortTrainer == null) {
-            this.wortTrainer = createNewWortTrainer();
-        }
-    }
-
-    /**
-     * Lädt die persistierten Daten. Falls keine vorhanden sind, wird null zurückgegeben.
-     */
-    private WortTrainer loadWortTrainer() {
-        try {
-            return saveLoad.load();
-        } catch (IOException | ClassNotFoundException e) {
-            System.out.println("Keine Daten gefunden, neuer Worttrainer wird erstellt.");
-            return null;
-        }
-    }
-
-    /**
-     * Erstellt einen neuen WortTrainer mit fix einprogrammierten Wortpaaren.
-     */
-    private WortTrainer createNewWortTrainer() {
-        WortTrainer wt = new WortTrainer();
-        try {
-            wt.addWortpaar(new Wortpaar("https://example.com/hund.jpg", "Hund"));
-            wt.addWortpaar(new Wortpaar("https://example.com/katze.jpg", "Katze"));
-            wt.addWortpaar(new Wortpaar("https://example.com/haus.jpg", "Haus"));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return wt;
+    public View(WortTrainer wortTrainer, SaveLoad saveLoad) {
+        this.wortTrainer = wortTrainer;
+        this.saveLoad = saveLoad;
     }
 
     /**
