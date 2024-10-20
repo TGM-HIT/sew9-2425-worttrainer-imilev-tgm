@@ -10,7 +10,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
- * Die View-Klasse, die für die Benutzerinteraktion verantwortlich ist.
+ * @author Ivan Milev
+ * @version 2024-10-20
+ * Diese Klasse bildet die Darstellung bzw die Benutzeroberfläche für die User da
  */
 public class View {
 

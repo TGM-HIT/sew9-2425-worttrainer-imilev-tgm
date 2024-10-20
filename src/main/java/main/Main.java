@@ -8,8 +8,11 @@ import view.View;
 
 import java.io.IOException;
 
+
 /**
- * Die Hauptklasse, die den Worttrainer startet.
+ * @author Ivan Milev
+ * @version 2024-10-20
+ * Diese Klasse fungiert als Controller, welche das Modell mit der View vereint. Von hier aus wird das Programm gestartet
  */
 public class Main {
     public static void main(String[] args) {
@@ -18,7 +21,6 @@ public class Main {
 
         // Versuche, den WortTrainer zu laden. Falls nicht vorhanden, erstelle einen neuen.
         WortTrainer wortTrainer = loadWortTrainer(saveLoad);
-        System.out.println(wortTrainer.getAktuellesWortpaarIndex());
 
 
         // Überprüfe, ob der WortTrainer erfolgreich geladen oder erstellt wurde
@@ -42,9 +44,6 @@ public class Main {
         try {
             WortTrainer wortTrainer = saveLoad.load();
 
-            System.out.println(wortTrainer.getAktuellesWortpaarIndex());
-
-            System.out.println(wortTrainer.getRichtig());
 
             if (wortTrainer == null) {
                 System.out.println("Keine Daten gefunden, neuer Worttrainer wird erstellt.");

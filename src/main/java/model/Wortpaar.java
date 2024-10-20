@@ -3,6 +3,12 @@ package model;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+
+/**
+ * @author Ivan Milev
+ * @version 2024-10-20
+ * Diese Klasse bildet ein Wortpaar bestehend aus einer URL und einem dazugehörigen Wort
+ */
 public class Wortpaar {
     private String url;
     private String wort;

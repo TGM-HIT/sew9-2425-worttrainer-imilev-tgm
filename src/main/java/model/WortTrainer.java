@@ -7,7 +7,7 @@ import java.util.ArrayList;
 /**
  * @author Ivan Milev
  * @version 2024-10-20
- * Der Worttrainer, der sich um die Wortpaare kümmert.
+ * Der Worttrainer, der sich um die Verwaltung der Wortpaare kümmert
  */
 public class WortTrainer {
 
@@ -61,6 +61,9 @@ public class WortTrainer {
     }
 
     public void setAktuellesWortpaarIndex(int index) {
+        if (index < 0 || index >= wortpaare.size()) {
+            throw new IndexOutOfBoundsException("Ungültiger Index: " + index);
+        }
         this.aktuellesWortpaarIndex = index;
     }
 

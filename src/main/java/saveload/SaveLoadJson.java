@@ -6,6 +6,13 @@ import model.WortTrainer;
 import java.io.File;
 import java.io.IOException;
 
+
+/**
+ * @author Ivan Milev
+ * @version 2024-10-20
+ * Diese Klasse implementiert die SaveLoad Interface, wodurch WortTrainer gespeichert werden können. In unserem Fall
+ * handelt es sich um die Speicherung im JSON Format
+ */
 public class SaveLoadJson implements SaveLoad {
     private static final String FILE_PATH = "worttrainer.json";
     private ObjectMapper objectMapper;
