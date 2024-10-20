@@ -1,18 +1,6 @@
 {
-  "richtig": 3,
-  "insgesamt": 5,
-  "wortpaar": {
-    "url": "https://i.schicksal.com/var/jupiter/storage/images/astrologie/chinesisches-horoskop/affe/1214199-92-ger-DE/Affe_16by9-fullhd.jpg",
-    "wort": "Affe"
-  },
-  "wortpaare": [
-    {
-      "url": "https://e6ki4fbm3oz.exactdn.com/wp-content/uploads/2016/06/Zunge-Giraffe.jpg?strip=all&lossy=1&ssl=1",
-      "wort": "Giraffe"
-    },
-    {
-      "url": "https://i.pinimg.com/550x/cb/08/80/cb0880dbcb4b62c1a9aec4aca3ad94df.jpg",
-      "wort": "Papagei"
-    }
-  ]
+  "richtig" : 1,
+  "insgesamt" : 1,
+  "wort" : "Giraffe",
+  "bildURL" : "https://e6ki4fbm3oz.exactdn.com/wp-content/uploads/2016/06/Zunge-Giraffe.jpg?strip=all&lossy=1&ssl=1"
 }
