@@ -9,7 +9,7 @@ public class Wortpaar {
 
     // Standard-Konstruktor für Jackson
     public Wortpaar() {
-        // Standard-Konstruktor, der benötigt wird
+        // Standard-Konstruktor, der benötigt wird für JSON Converter
     }
 
     public Wortpaar(String url, String wort) throws URISyntaxException {
