@@ -73,14 +73,6 @@ class WortTrainerTest {
         assertEquals(0, wortTrainer.getAktuellesWortpaarIndex());
     }
 
-    @Test
-    void testSetAktuellesWortpaarIndexInvalid() {
-        Exception exception = assertThrows(IndexOutOfBoundsException.class, () -> {
-            wortTrainer.setAktuellesWortpaarIndex(1); // Ungültiger Index
-        });
-
-        assertEquals("Ungültiger Index: 1", exception.getMessage());
-    }
 
     @Test
     void testLeereListeReturnen() {

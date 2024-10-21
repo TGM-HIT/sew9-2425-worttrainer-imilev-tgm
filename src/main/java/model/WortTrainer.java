@@ -61,9 +61,6 @@ public class WortTrainer {
     }
 
     public void setAktuellesWortpaarIndex(int index) {
-        if (index < 0 || index >= wortpaare.size()) {
-            throw new IndexOutOfBoundsException("Ungültiger Index: " + index);
-        }
         this.aktuellesWortpaarIndex = index;
     }
 

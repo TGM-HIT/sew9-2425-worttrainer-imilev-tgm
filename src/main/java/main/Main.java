@@ -43,7 +43,7 @@ public class Main {
     private static WortTrainer loadWortTrainer(SaveLoad saveLoad) {
         try {
             WortTrainer wortTrainer = saveLoad.load();
-
+            System.out.println(wortTrainer.getAktuellesWortpaarIndex());
 
             if (wortTrainer == null) {
                 System.out.println("Keine Daten gefunden, neuer Worttrainer wird erstellt.");

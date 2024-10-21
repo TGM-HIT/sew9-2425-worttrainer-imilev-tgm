@@ -5,15 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b55e1def-3a07-47cc-802e-60109f675394" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/WortTrainerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Worttrainer.asta" beforeDir="false" afterPath="$PROJECT_DIR$/Worttrainer.asta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Worttrainer.asta.lock" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/WortTrainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/WortTrainer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Wortpaar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Wortpaar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/saveload/SaveLoad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/saveload/SaveLoad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/saveload/SaveLoadJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/saveload/SaveLoadJson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/WortTrainerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/WortTrainerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/worttrainer.json" beforeDir="false" afterPath="$PROJECT_DIR$/worttrainer.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,8 +56,8 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -71,7 +67,7 @@
       <recent name="C:\Users\Ivanm\Desktop\Schule\git\Worttrainer" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Tests in 'Worttrainer.test'">
+  <component name="RunManager">
     <configuration name="Tests in 'Worttrainer.test'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -133,7 +129,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1729428707698</updated>
-      <workItem from="1729428708735" duration="17666000" />
+      <workItem from="1729428708735" duration="19425000" />
     </task>
     <servers />
   </component>
